@@ -33,9 +33,6 @@ With this plugin, you can efficiently manage your architecture models directly w
 - **Plugin Source Code:** [GitHub Repository](https://github.com/likec4/jetbrains-plugin)
 - **Issue Tracker:** [Report a Bug / Request a Feature](https://github.com/likec4/jetbrains-plugin/issues)
 
----
-**Special thanks to [Denis Davydkov](https://github.com/davydkov) for his invaluable help in developing this plugin.** 🎉
-
 <!-- Plugin description end -->
 
 ## Installation
