@@ -1,4 +1,4 @@
-package com.likec4
+package com.likec4.jetbrainsplugin
 
 import com.intellij.ide.IconProvider
 import com.intellij.psi.PsiElement

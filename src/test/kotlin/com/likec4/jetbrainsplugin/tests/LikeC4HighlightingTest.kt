@@ -1,4 +1,4 @@
-package com.likec4.tests
+package com.likec4.jetbrainsplugin.tests
 
 import com.intellij.testFramework.TestDataPath
 import com.intellij.testFramework.builders.ModuleFixtureBuilder

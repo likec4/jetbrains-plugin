@@ -1,4 +1,4 @@
-package com.likec4
+package com.likec4.jetbrainsplugin
 
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.openapi.project.Project

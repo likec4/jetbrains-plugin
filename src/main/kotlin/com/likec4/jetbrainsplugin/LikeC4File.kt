@@ -1,4 +1,4 @@
-package com.likec4
+package com.likec4.jetbrainsplugin
 
 val supportedExtensions = setOf(
     "c4",
