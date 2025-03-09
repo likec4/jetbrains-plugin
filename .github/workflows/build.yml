@@ -117,7 +117,7 @@ jobs:
 
       # Install additional package
       - name: Install @likec4/language-server
-        run: npm install -g @likec4/language-server
+        run: npm install -g @likec4/language-server@1.21.1
 
       - name: Check if @likec4/language-server is installed
         run: npm list -g --depth=0
