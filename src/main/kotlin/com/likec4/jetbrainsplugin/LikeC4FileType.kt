@@ -3,7 +3,7 @@ package com.likec4.jetbrainsplugin
 import com.intellij.openapi.fileTypes.LanguageFileType
 import javax.swing.Icon
 
-object LikeC4FileType : LanguageFileType(LikeC4Language) {
+class LikeC4FileType : LanguageFileType(LikeC4Language) {
     override fun getName() = "LikeC4"
     override fun getDefaultExtension() = "c4"
     override fun getIcon(): Icon = LikeC4Icons.LikeC4
