@@ -8,8 +8,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <fileType name="LikeC4"
+                  implementationClass="com.likec4.jetbrainsplugin.LikeC4FileType"
+                  fieldName="INSTANCE"
+                  extensions="c4;likec4;like-c4"/>
+
         <platform.lsp.serverSupportProvider implementation="com.likec4.jetbrainsplugin.LikeC4LspServerSupportProvider"/>
-        <iconProvider implementation="com.likec4.jetbrainsplugin.LikeC4FileIconProvider"/>
     </extensions>
 
 </idea-plugin>
