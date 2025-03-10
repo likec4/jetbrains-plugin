@@ -9,11 +9,11 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="LikeC4"
-                  implementationClass="com.likec4.jetbrainsplugin.LikeC4FileType"
+                  implementationClass="com.likec4.jetbrainsplugin.lang.LikeC4FileType"
                   extensions="c4;likec4;like-c4"
                   language="LikeC4"/>
 
-        <platform.lsp.serverSupportProvider implementation="com.likec4.jetbrainsplugin.LikeC4LspServerSupportProvider"/>
+        <platform.lsp.serverSupportProvider implementation="com.likec4.jetbrainsplugin.lsp.LikeC4LspServerSupportProvider"/>
     </extensions>
 
 </idea-plugin>
