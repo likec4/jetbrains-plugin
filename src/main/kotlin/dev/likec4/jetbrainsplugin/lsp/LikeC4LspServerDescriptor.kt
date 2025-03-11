@@ -1,12 +1,12 @@
-package com.likec4.jetbrainsplugin.lsp
+package dev.likec4.jetbrainsplugin.lsp
 
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.platform.lsp.api.ProjectWideLspServerDescriptor
 
-import com.likec4.jetbrainsplugin.lang.likeC4Name
-import com.likec4.jetbrainsplugin.lang.supportedExtensions
+import dev.likec4.jetbrainsplugin.lang.likeC4Name
+import dev.likec4.jetbrainsplugin.lang.supportedExtensions
 
 class LikeC4LspServerDescriptor(project: Project) : ProjectWideLspServerDescriptor(project, likeC4Name) {
 

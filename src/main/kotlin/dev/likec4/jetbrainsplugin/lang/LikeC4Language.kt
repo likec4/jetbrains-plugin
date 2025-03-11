@@ -1,4 +1,4 @@
-package com.likec4.jetbrainsplugin.lang
+package dev.likec4.jetbrainsplugin.lang
 
 import com.intellij.lang.Language
 

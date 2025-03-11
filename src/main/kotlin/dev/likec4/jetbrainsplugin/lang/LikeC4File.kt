@@ -1,4 +1,4 @@
-package com.likec4.jetbrainsplugin.lang
+package dev.likec4.jetbrainsplugin.lang
 
 const val likeC4Name = "LikeC4"
 
