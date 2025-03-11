@@ -1,19 +1,19 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.likec4.jetbrains-plugin</id>
+    <id>dev.likec4.jetbrains-plugin</id>
     <name>LikeC4 LSP Support</name>
-    <vendor>likec4</vendor>
+    <vendor>likec4.dev</vendor>
     <description>This is the plugin that support LikeC4 convention</description>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="LikeC4"
-                  implementationClass="com.likec4.jetbrainsplugin.lang.LikeC4FileType"
+                  implementationClass="dev.likec4.jetbrainsplugin.lang.LikeC4FileType"
                   extensions="c4;likec4;like-c4"
                   language="LikeC4"/>
 
-        <platform.lsp.serverSupportProvider implementation="com.likec4.jetbrainsplugin.lsp.LikeC4LspServerSupportProvider"/>
+        <platform.lsp.serverSupportProvider implementation="dev.likec4.jetbrainsplugin.lsp.LikeC4LspServerSupportProvider"/>
     </extensions>
 
 </idea-plugin>
