@@ -2,6 +2,7 @@ package dev.likec4.jetbrainsplugin.lsp
 
 import com.intellij.execution.ExecutionException
 import com.intellij.execution.configurations.GeneralCommandLine
+import com.intellij.execution.configurations.GeneralCommandLine.ParentEnvironmentType
 import com.intellij.execution.util.ExecUtil
 import com.intellij.execution.util.PathEnvironmentVariableUtil
 import com.intellij.notification.NotificationAction
@@ -12,6 +13,7 @@ import com.intellij.openapi.ide.CopyPasteManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.util.Key
+import com.intellij.openapi.util.SystemInfo
 import java.awt.datatransfer.StringSelection
 
 object LikeC4LanguageServerInstaller {
@@ -65,9 +67,7 @@ object LikeC4LanguageServerInstaller {
   private fun installLanguageServer(project: Project) {
     ApplicationManager.getApplication().executeOnPooledThread {
       val (message, details, type) = try {
-        val output = ExecUtil.execAndGetOutput(
-          GeneralCommandLine("npm", "install", "-g", "@likec4/language-server")
-        )
+        val output = ExecUtil.execAndGetOutput(buildInstallCommandLine())
         if (output.exitCode == 0) {
           Triple("LikeC4 language server installed.", output.stdout, NotificationType.INFORMATION)
         } else {
@@ -90,5 +90,15 @@ object LikeC4LanguageServerInstaller {
         .createNotification(message, details, type)
         .notify(project)
     }
+  }
+
+  private fun buildInstallCommandLine(): GeneralCommandLine {
+    val baseCommand = listOf("npm", "install", "-g", "@likec4/language-server")
+    val commandLine = if (SystemInfo.isWindows) {
+      GeneralCommandLine("cmd.exe", "/c").withParameters(baseCommand)
+    } else {
+      GeneralCommandLine(baseCommand)
+    }
+    return commandLine.withParentEnvironmentType(ParentEnvironmentType.CONSOLE)
   }
 }
