@@ -32,12 +32,17 @@ object LikeC4LanguageServerInstaller {
     return false
   }
 
-  private fun isAvailable(): Boolean =
-    System.getenv("PATH")
-        ?.split(System.getProperty("path.separator"))
-        ?.map { java.nio.file.Paths.get(it, executableName) }
-        ?.any { java.nio.file.Files.isExecutable(it) }
-        ?: false
+  private fun isAvailable(): Boolean {
+    val paths = System.getenv("PATH")?.split(System.getProperty("path.separator")) ?: return false
+    val extensions = if (SystemInfo.isWindows) listOf(".cmd", ".bat", ".exe", "") else listOf("")
+    
+    return paths.any { pathDir ->
+      extensions.any { ext ->
+        val executablePath = java.nio.file.Paths.get(pathDir, executableName + ext)
+        java.nio.file.Files.isExecutable(executablePath)
+      }
+    }
+  }
 
   private fun notifyMissingServer(project: Project) {
     val notification = NotificationGroupManager.getInstance()
