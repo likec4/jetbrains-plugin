@@ -4,7 +4,6 @@ import com.intellij.execution.ExecutionException
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.configurations.GeneralCommandLine.ParentEnvironmentType
 import com.intellij.execution.util.ExecUtil
-import com.intellij.execution.util.PathEnvironmentVariableUtil
 import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager
 import com.intellij.notification.NotificationType
@@ -34,7 +33,11 @@ object LikeC4LanguageServerInstaller {
   }
 
   private fun isAvailable(): Boolean =
-    PathEnvironmentVariableUtil.findExecutableInPath(executableName) != null
+    System.getenv("PATH")
+        ?.split(System.getProperty("path.separator"))
+        ?.map { java.nio.file.Paths.get(it, executableName) }
+        ?.any { java.nio.file.Files.isExecutable(it) }
+        ?: false
 
   private fun notifyMissingServer(project: Project) {
     val notification = NotificationGroupManager.getInstance()
