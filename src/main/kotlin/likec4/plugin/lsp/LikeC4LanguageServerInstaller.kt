@@ -1,4 +1,4 @@
-package dev.likec4.jetbrainsplugin.lsp
+package likec4.plugin.lsp
 
 import com.intellij.execution.ExecutionException
 import com.intellij.execution.configurations.GeneralCommandLine

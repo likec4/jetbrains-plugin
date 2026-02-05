@@ -1,8 +1,7 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# jetbrains-likec4-plugin Changelog
+# Changelog
 
-## [Unreleased] - 2025-03
-### Added
-- Init the first version of Plugin based on [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+## 1.0.0 - 2026-02
 
+- Update plugin to support newer IDE

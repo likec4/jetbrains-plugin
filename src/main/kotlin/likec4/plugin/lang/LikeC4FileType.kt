@@ -1,7 +1,7 @@
-package dev.likec4.jetbrainsplugin.lang
+package likec4.plugin.lang
 
 import com.intellij.openapi.fileTypes.LanguageFileType
-import dev.likec4.jetbrainsplugin.icon.LikeC4Icons
+import likec4.plugin.icon.LikeC4Icons
 import javax.swing.Icon
 
 class LikeC4FileType : LanguageFileType(LikeC4Language) {

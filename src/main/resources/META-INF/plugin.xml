@@ -1,6 +1,6 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>dev.likec4.jetbrains-plugin</id>
+    <id>likec4.plugin</id>
     <name>LikeC4 LSP Support</name>
     <vendor>likec4.dev</vendor>
     <description>This is the plugin that support LikeC4 convention</description>
@@ -9,11 +9,11 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="LikeC4"
-                  implementationClass="dev.likec4.jetbrainsplugin.lang.LikeC4FileType"
+                  implementationClass="likec4.plugin.lang.LikeC4FileType"
                   extensions="c4;likec4;like-c4"
                   language="LikeC4"/>
 
-        <platform.lsp.serverSupportProvider implementation="dev.likec4.jetbrainsplugin.lsp.LikeC4LspServerSupportProvider"/>
+        <platform.lsp.serverSupportProvider implementation="likec4.plugin.lsp.LikeC4LspServerSupportProvider"/>
         <notificationGroup id="LikeC4" displayType="BALLOON" isLogByDefault="false"/>
     </extensions>
 

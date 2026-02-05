@@ -1,4 +1,4 @@
-package dev.likec4.jetbrainsplugin.icon
+package likec4.plugin.icon
 
 import com.intellij.openapi.util.IconLoader
 
