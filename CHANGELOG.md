@@ -2,6 +2,6 @@
 
 # Changelog
 
-## 1.0.0 - 2026-02
-
+## [Unreleased] - 2026-02
+### Added
 - Update plugin to support newer IDE
