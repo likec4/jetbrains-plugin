@@ -14,6 +14,7 @@
                   language="LikeC4"/>
 
         <platform.lsp.serverSupportProvider implementation="dev.likec4.jetbrainsplugin.lsp.LikeC4LspServerSupportProvider"/>
+        <notificationGroup id="LikeC4" displayType="BALLOON" isLogByDefault="false"/>
     </extensions>
 
 </idea-plugin>

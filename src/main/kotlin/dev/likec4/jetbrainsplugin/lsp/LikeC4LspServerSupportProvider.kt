@@ -12,7 +12,9 @@ import dev.likec4.jetbrainsplugin.lang.supportedExtensions
 class LikeC4LspServerSupportProvider : LspServerSupportProvider {
   override fun fileOpened(project: Project, file: VirtualFile, serverStarter: LspServerStarter) {
     if (file.extension in supportedExtensions) {
-      serverStarter.ensureServerStarted(LikeC4LspServerDescriptor(project))
+      if (LikeC4LanguageServerInstaller.ensureAvailable(project)) {
+        serverStarter.ensureServerStarted(LikeC4LspServerDescriptor(project))
+      }
     }
   }
 
