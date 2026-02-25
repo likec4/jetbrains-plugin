@@ -2,6 +2,8 @@ package likec4.plugin.lang
 
 const val likeC4Name = "LikeC4"
 
+const val languageID = "likec4"
+
 val supportedExtensions = setOf(
     "c4",
     "likec4",

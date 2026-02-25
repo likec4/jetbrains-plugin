@@ -13,6 +13,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.util.Key
 import com.intellij.openapi.util.SystemInfo
+import likec4.plugin.icon.LikeC4Icons
 import java.awt.datatransfer.StringSelection
 
 object LikeC4LanguageServerInstaller {
@@ -52,6 +53,7 @@ object LikeC4LanguageServerInstaller {
         "Install <code>@likec4/language-server</code> to enable LikeC4 support.",
         NotificationType.WARNING
       )
+      .setIcon(LikeC4Icons.LikeC4)
 
     notification.addAction(NotificationAction.createSimpleExpiring("Install with npm") {
       val result = Messages.showYesNoDialog(
@@ -96,6 +98,7 @@ object LikeC4LanguageServerInstaller {
       NotificationGroupManager.getInstance()
         .getNotificationGroup("LikeC4")
         .createNotification(message, details, type)
+        .setIcon(LikeC4Icons.LikeC4)
         .notify(project)
     }
   }

@@ -11,13 +11,15 @@ import likec4.plugin.lang.supportedExtensions
 
 class LikeC4LspServerSupportProvider : LspServerSupportProvider {
   override fun fileOpened(project: Project, file: VirtualFile, serverStarter: LspServerStarter) {
-    if (file.extension in supportedExtensions) {
-      if (LikeC4LanguageServerInstaller.ensureAvailable(project)) {
-        serverStarter.ensureServerStarted(LikeC4LspServerDescriptor(project))
-      }
-    }
-  }
 
-  override fun createLspServerWidgetItem(lspServer: LspServer, currentFile: VirtualFile?): LspServerWidgetItem? =
-    LspServerWidgetItem(lspServer, currentFile, LikeC4Icons.LikeC4, null)
+    if (!LikeC4LspServerDescriptor.isSupportedFile(file)) return
+
+//    if (file.extension in supportedExtensions) {
+//      if (LikeC4LanguageServerInstaller.ensureAvailable(project)) {
+    serverStarter.ensureServerStarted(LikeC4LspServerDescriptor(project))
+//      }
+    }
+
+  override fun createLspServerWidgetItem(lspServer: LspServer, currentFile: VirtualFile?) =
+    LspServerWidgetItem(lspServer, currentFile, LikeC4Icons.LikeC4)
 }

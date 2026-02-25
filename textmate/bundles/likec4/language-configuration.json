@@ -1,0 +1,119 @@
+{
+  "comments": {
+    "lineComment": "//",
+    "blockComment": [
+      "/*",
+      "*/"
+    ]
+  },
+  "brackets": [
+    [
+      "{",
+      "}"
+    ],
+    [
+      "(",
+      ")"
+    ]
+  ],
+  "autoClosingPairs": [
+    [
+      "-[",
+      "]->"
+    ],
+    [
+      "'''",
+      "'''"
+    ],
+    [
+      "'",
+      "'"
+    ],
+    [
+      "\"\"\"",
+      "\"\"\""
+    ],
+    [
+      "\"",
+      "\""
+    ],
+    [
+      "/*",
+      "*/"
+    ],
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ]
+  ],
+  "autoCloseBefore": "'\";:,=}])>` \n\t",
+  "surroundingPairs": [
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ],
+    [
+      "\"",
+      "\""
+    ],
+    [
+      "'",
+      "'"
+    ]
+  ],
+  "colorizedBracketPairs": [
+    [
+      "{",
+      "}"
+    ]
+  ],
+  "onEnterRules": [
+    {
+      "beforeText": "\\s*('{3}|\"{3})[^'\"]*$",
+      "afterText": "^\\s*('{3}|\"{3})\\s*$",
+      "action": {
+        "indent": "indentOutdent"
+      }
+    },
+    {
+      "beforeText": "\\s*('|\")[^'\"]*$",
+      "afterText": "^\\s*('|\")\\s*$",
+      "action": {
+        "indent": "indentOutdent"
+      }
+    },
+    {
+      "beforeText": "^\\s*(include|exclude)\\s*$",
+      "action": {
+        "indent": "indent"
+      }
+    },
+    {
+      "beforeText": ":\\s*$",
+      "afterText": "^\\s*$",
+      "action": {
+        "indent": "indent"
+      }
+    }
+  ],
+  "indentationRules": {
+    "increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$",
+    "decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*/)?\\s*[\\)\\}\\]].*$"
+  }
+}

@@ -1,20 +1,26 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>likec4.plugin</id>
-    <name>LikeC4 LSP Support</name>
-    <vendor>likec4.dev</vendor>
-    <description>This is the plugin that support LikeC4 convention</description>
+    <name>LikeC4</name>
+    <vendor url="https://likec4.dev">likec4.dev</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.textmate</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <fileType name="LikeC4"
-                  implementationClass="likec4.plugin.lang.LikeC4FileType"
-                  extensions="c4;likec4;like-c4"
-                  language="LikeC4"/>
+        <fileType
+            order="first"
+            name="LikeC4"
+            implementationClass="likec4.plugin.lang.LikeC4FileType"
+            fieldName="INSTANCE"
+            language="likec4"
+            extensions="c4;likec4;like-c4"/>
+
+        <!-- TextMate Bundle -->
+        <textmate.bundleProvider implementation="likec4.plugin.textmate.LikeC4TextMateBundleProvider" />
 
         <platform.lsp.serverSupportProvider implementation="likec4.plugin.lsp.LikeC4LspServerSupportProvider"/>
-        <notificationGroup id="LikeC4" displayType="BALLOON" isLogByDefault="false"/>
+        <notificationGroup id="LikeC4" displayType="BALLOON" isLogByDefault="true"  />
     </extensions>
 
 </idea-plugin>
