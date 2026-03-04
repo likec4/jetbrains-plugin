@@ -20,7 +20,7 @@
         <textmate.bundleProvider implementation="likec4.plugin.textmate.LikeC4TextMateBundleProvider" />
 
         <platform.lsp.serverSupportProvider implementation="likec4.plugin.lsp.LikeC4LspServerSupportProvider"/>
-        <notificationGroup id="LikeC4" displayType="BALLOON" isLogByDefault="true"  />
+        <notificationGroup id="LikeC4" displayType="STICKY_BALLOON"/>
     </extensions>
 
 </idea-plugin>

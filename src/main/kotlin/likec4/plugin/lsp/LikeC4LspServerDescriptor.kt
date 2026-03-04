@@ -44,11 +44,12 @@ class LikeC4LspServerDescriptor(project: Project) : ProjectWideLspServerDescript
     override fun isSupportedFile(file: VirtualFile) = LikeC4LspServerDescriptor.isSupportedFile(file)
 
     override fun createCommandLine(): GeneralCommandLine =
-        GeneralCommandLine("/Users/davydkov/Projects/like-c4/likec4/packages/likec4/bin/likec4.mjs")
-            .withParameters("lsp", "--stdio", "--no-color")
+        GeneralCommandLine("npx")
+            .withParameters("likec4", "lsp", "--stdio", "--no-color", "--log-level=error")
             .withParentEnvironmentType(GeneralCommandLine.ParentEnvironmentType.CONSOLE)
-            .withEnvironment("NODE_ENV", "production")
+            .withEnvironment("NODE_ENV", "development")
 
+//    override val lspCommunicationChannel = LspCommunicationChannel.Socket(11233)
 
     companion object {
 
