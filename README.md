@@ -1,8 +1,8 @@
 # LikeC4 Jetbrains Plugin
 
 ![Build](https://github.com/likec4/jetbrains-plugin/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/<MARKETPLACE_ID>.svg)](https://plugins.jetbrains.com/plugin/<MARKETPLACE_ID>)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/<MARKETPLACE_ID>.svg)](https://plugins.jetbrains.com/plugin/<MARKETPLACE_ID>)
+[![Version](https://img.shields.io/jetbrains/plugin/v/30490-likec4.svg)](https://plugins.jetbrains.com/plugin/30490-likec4)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/30490-likec4.svg)](https://plugins.jetbrains.com/plugin/30490-likec4)
 
 ## Template ToDo list
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
@@ -10,7 +10,7 @@
 - [x] Adjust the [pluginGroup](./gradle.properties) and [pluginName](./gradle.properties), as well as the [id](./src/main/resources/META-INF/plugin.xml) and [sources package](./src/main/kotlin).
 - [x] Adjust the plugin description in `README` (see [Tips][docs:plugin-description])
 - [x] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
+- [x] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
 - [ ] Set the `MARKETPLACE_ID` in the above README badges. You can obtain it once the plugin is published to JetBrains Marketplace.
 - [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
 - [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
@@ -19,7 +19,7 @@
 <!-- Plugin description -->
 Enhance your JetBrains IDE with LikeC4 support to work seamlessly with architecture-as-code models.
 
-This plugin integrates [LikeC4](https://likec4.dev), a powerful toolchain and Domain-Specific Language (DSL) for defining architecture diagrams as code, into JetBrains IDEs. It leverages the [@likec4/language-server](https://github.com/likec4/likec4/tree/main/packages/language-server), utilizing the [LSP API](https://plugins.jetbrains.com/docs/intellij/language-server-protocol.html) to provide essential features like:
+This plugin integrates [LikeC4](https://likec4.dev), a powerful toolchain and Domain-Specific Language (DSL) for defining architecture diagrams as code, into JetBrains IDEs. It leverages the [likec4 lsp](https://likec4.dev/tooling/cli/#language-server-lsp), utilizing the [LSP API](https://plugins.jetbrains.com/docs/intellij/language-server-protocol.html) to provide essential features like:
 
 - **Syntax highlighting** and **code completion** for LikeC4 DSL
 - **Real-time validation** and **error checking**
