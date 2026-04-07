@@ -17,8 +17,8 @@ import likec4.plugin.icon.LikeC4Icons
 import java.awt.datatransfer.StringSelection
 
 object LikeC4LanguageServerInstaller {
-  private const val executableName = "likec4"
-  private const val installCommand = "npm install -g likec4"
+  private const val executableName = "npx"
+  private const val installCommand = "npm install -g @likec4/lsp"
   private val notifiedKey = Key.create<Boolean>("likec4.language.server.missing.notified")
 
   private var _isAvailable = false
@@ -52,8 +52,8 @@ object LikeC4LanguageServerInstaller {
     val notification = NotificationGroupManager.getInstance()
       .getNotificationGroup("LikeC4")
       .createNotification(
-        "LikeC4 CLI not found",
-        "Install <code>likec4</code> to enable LikeC4 support.",
+        "Node.js not found",
+        "Install <code>Node.js</code> to enable LikeC4 support. You can also pre-install the language server with <code>npm install -g @likec4/lsp</code>.",
         NotificationType.WARNING
       )
       .setIcon(LikeC4Icons.LikeC4)
@@ -107,7 +107,7 @@ object LikeC4LanguageServerInstaller {
   }
 
   private fun buildInstallCommandLine(): GeneralCommandLine {
-    val baseCommand = listOf("npm", "install", "-g", "likec4")
+    val baseCommand = listOf("npm", "install", "-g", "@likec4/lsp")
     val commandLine = if (SystemInfo.isWindows) {
       GeneralCommandLine("cmd.exe", "/c").withParameters(baseCommand)
     } else {

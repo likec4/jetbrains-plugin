@@ -45,9 +45,8 @@ class LikeC4LspServerDescriptor(project: Project) : ProjectWideLspServerDescript
 
     override fun createCommandLine(): GeneralCommandLine =
         GeneralCommandLine("npx")
-            .withParameters("likec4", "lsp", "--stdio", "--no-color", "--log-level=error")
+            .withParameters("@likec4/lsp", "--yes", "--stdio")
             .withParentEnvironmentType(GeneralCommandLine.ParentEnvironmentType.CONSOLE)
-            .withEnvironment("NODE_ENV", "development")
 
 //    override val lspCommunicationChannel = LspCommunicationChannel.Socket(11233)
 
