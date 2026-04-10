@@ -2,6 +2,6 @@
 
 # Changelog
 
-## [Unreleased] - 2026-02
+## [Unreleased]
 ### Added
-- Update plugin to support newer IDE
+- Update plugin to use `@likec4/lsp` package - standalone LSP server with zero dependencies 
