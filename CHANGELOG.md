@@ -3,5 +3,10 @@
 # Changelog
 
 ## [Unreleased]
-### Added
-- Update plugin to use `@likec4/lsp` package - standalone LSP server with zero dependencies 
+
+## [1.1.0] - 2026-04-10
+
+Use standalone @likec4/lsp package for language server by @davydkov in https://github.com/likec4/jetbrains-plugin/pull/86
+
+[Unreleased]: https://github.com/likec4/jetbrains-plugin/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/likec4/jetbrains-plugin/commits/v1.1.0
