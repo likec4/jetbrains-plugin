@@ -1,7 +1,9 @@
 package likec4.plugin.lsp
 
 import com.intellij.execution.configurations.GeneralCommandLine
+import com.intellij.execution.configurations.GeneralCommandLine.ParentEnvironmentType
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
+import com.intellij.openapi.util.SystemInfo
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.platform.lsp.api.ProjectWideLspServerDescriptor
@@ -43,10 +45,15 @@ class LikeC4LspServerDescriptor(project: Project) : ProjectWideLspServerDescript
     }
     override fun isSupportedFile(file: VirtualFile) = LikeC4LspServerDescriptor.isSupportedFile(file)
 
-    override fun createCommandLine(): GeneralCommandLine =
-        GeneralCommandLine("npx")
-            .withParameters("@likec4/lsp", "--yes", "--stdio")
-            .withParentEnvironmentType(GeneralCommandLine.ParentEnvironmentType.CONSOLE)
+    override fun createCommandLine(): GeneralCommandLine {
+        val baseCommand = listOf("npx", "@likec4/lsp", "--yes", "--stdio")
+        val commandLine = if (SystemInfo.isWindows) {
+            GeneralCommandLine("cmd.exe", "/c").withParameters(baseCommand)
+        } else {
+            GeneralCommandLine(baseCommand)
+        }
+        return commandLine.withParentEnvironmentType(ParentEnvironmentType.CONSOLE)
+    }
 
 //    override val lspCommunicationChannel = LspCommunicationChannel.Socket(11233)
 
