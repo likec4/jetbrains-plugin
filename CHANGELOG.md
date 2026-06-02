@@ -4,6 +4,8 @@
 
 ## [Unreleased]
 
+fix: wrap npx in cmd.exe /c on Windows to fix ProcessNotCreatedException by @sc-automation in https://github.com/likec4/jetbrains-plugin/pull/99, closes #98
+
 ## [1.1.0] - 2026-04-10
 
 Use standalone @likec4/lsp package for language server by @davydkov in https://github.com/likec4/jetbrains-plugin/pull/86
