@@ -3,6 +3,7 @@ package likec4.plugin.lsp
 import com.intellij.execution.ExecutionException
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.execution.configurations.GeneralCommandLine.ParentEnvironmentType
+import com.intellij.execution.configurations.PathEnvironmentVariableUtil
 import com.intellij.execution.util.ExecUtil
 import com.intellij.notification.NotificationAction
 import com.intellij.notification.NotificationGroupManager
@@ -36,17 +37,14 @@ object LikeC4LanguageServerInstaller {
     return false
   }
 
-  private fun isAvailable(): Boolean {
-    val paths = System.getenv("PATH")?.split(System.getProperty("path.separator")) ?: return false
-    val extensions = if (SystemInfo.isWindows) listOf(".cmd", ".bat", ".exe", "") else listOf("")
-    
-    return paths.any { pathDir ->
-      extensions.any { ext ->
-        val executablePath = java.nio.file.Paths.get(pathDir, executableName + ext)
-        java.nio.file.Files.isExecutable(executablePath)
-      }
-    }
-  }
+  /**
+   * Resolves [executableName] against the PATH of the user's shell environment (see `EnvironmentUtil`),
+   * not the raw IDE process environment. On macOS, IDEs launched from Dock/Finder only get the launchd
+   * PATH (`/usr/bin:/bin:/usr/sbin:/sbin`), which misses Homebrew, nvm, etc. This matches the environment
+   * used to start the server (`ParentEnvironmentType.CONSOLE`).
+   */
+  private fun isAvailable(): Boolean =
+    PathEnvironmentVariableUtil.findExecutableInPathOnAnyOS(executableName) != null
 
   private fun notifyMissingServer(project: Project) {
     val notification = NotificationGroupManager.getInstance()
